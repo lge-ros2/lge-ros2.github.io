@@ -4,16 +4,17 @@
 
 ### Projects
 
-#### [CLOiSim](cloisim/)
-Unity 기반의 고성능 멀티로봇 시뮬레이터입니다. SDFormat(SDF) 파일을 파싱해 3D 환경과 로봇을 자동으로 구성하며, LiDAR/카메라/IMU/GPS 등 다양한 센서와 NVIDIA PhysX 물리엔진을 지원합니다.
+#### Simulation
+
+**[CLOiSim](cloisim/)** — Unity 기반의 고성능 멀티로봇 시뮬레이터입니다. SDFormat(SDF) 파일을 파싱해 3D 환경과 로봇을 자동으로 구성하며, LiDAR/카메라/IMU/GPS 등 다양한 센서와 NVIDIA PhysX 물리엔진을 지원합니다.
 - Repository: [lge-ros2/CLOiSim](https://github.com/lge-ros2/CLOiSim)
 
-#### [cloisim_ros](cloisim_ros/)
-CLOiSim 시뮬레이터와 ROS2를 연결해주는 디바이스 패키지입니다. 카메라, LiDAR, IMU, GPS, contact/range 센서를 지원하며 멀티로봇/싱글로봇 모드와 Docker 실행을 지원합니다.
+**[cloisim_ros](cloisim_ros/)** — CLOiSim 시뮬레이터와 ROS2를 연결해주는 디바이스 패키지입니다. 카메라, LiDAR, IMU, GPS, contact/range 센서를 지원하며 멀티로봇/싱글로봇 모드와 Docker 실행을 지원합니다.
 - Repository: [lge-ros2/cloisim_ros](https://github.com/lge-ros2/cloisim_ros)
 
-#### [cloud_bridge](cloud_bridge/)
-ZMQ 기반으로 서로 다른 네트워크에 있는 ROS2 노드 간 메시지(topic/message/TF)를 중계하는 브릿지 패키지입니다. `DDS(LAN) -> WAN -> DDS(LAN)` 구조로 원격지 로봇과의 통신을 지원합니다.
+#### Networking
+
+**[cloud_bridge](cloud_bridge/)** — ZMQ 기반으로 서로 다른 네트워크에 있는 ROS2 노드 간 메시지(topic/message/TF)를 중계하는 브릿지 패키지입니다. `DDS(LAN) -> WAN -> DDS(LAN)` 구조로 원격지 로봇과의 통신을 지원합니다.
 - Repository: [lge-ros2/cloud_bridge](https://github.com/lge-ros2/cloud_bridge)
 
 ### Other repositories
