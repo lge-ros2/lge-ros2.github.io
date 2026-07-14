@@ -1,37 +1,46 @@
-## Welcome to GitHub Pages
+## CLOiSim
 
-You can use the [editor on GitHub](https://github.com/lge-ros2/lge-ros2.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Unity 기반의 고성능 멀티로봇 시뮬레이터입니다. [SDFormat(SDF)](http://sdformat.org/) 파일을 파싱해 3D 환경과 로봇을 자동으로 구성하고, ROS2와 연동해 시뮬레이션 기반 로봇 개발을 지원합니다.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Repository: [lge-ros2/CLOiSim](https://github.com/lge-ros2/CLOiSim)
+- ROS2 연동 패키지: [lge-ros2/cloisim_ros](https://github.com/lge-ros2/cloisim_ros)
+- 지원 ROS2 배포판: Humble, Jazzy (cloisim_ros 통해 연동)
 
-### Markdown
+### Key Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- SDF 파서를 통한 Unity Visual/Collision/Physics 컴포넌트 자동 매핑
+- 센서 지원: 2D/3D LiDAR, 컬러/깊이/시맨틱 카메라, IMU, GPS, 소나, IR
+- NVIDIA PhysX 기반 물리엔진 (Temporal Gauss Seidel solver)
+- 플러그인 아키텍처 (LaserPlugin, CameraPlugin, MicomPlugin 등)
+- actor, light, heightmap, road 등 다양한 월드 요소 지원
+- 외부 UI 제어를 위한 WebSocket 인터페이스
+- 리눅스 headless 모드 지원
 
-```markdown
-Syntax highlighted code block
+### Getting Started
 
-# Header 1
-## Header 2
-### Header 3
+릴리즈 바이너리를 다운로드하거나 소스에서 직접 빌드할 수 있습니다.
 
-- Bulleted
-- List
+```bash
+# 환경변수 설정
+export CLOISIM_FILES_PATH=/path/to/resources
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# 실행
+./run.sh cloisim.world
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+소스 빌드 시 Unity Editor 6000.5.0f1 이상이 필요합니다.
 
-### Jekyll Themes
+자세한 설치 및 사용법은 [CLOiSim README](https://github.com/lge-ros2/CLOiSim#readme)를 참고하세요.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/lge-ros2/lge-ros2.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### ROS2 연동
 
-### Support or Contact
+CLOiSim은 [cloisim_ros](https://github.com/lge-ros2/cloisim_ros) 패키지를 통해 ROS2와 연동됩니다.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```bash
+git clone https://github.com/lge-ros2/cloisim_ros.git
+rosdep install --from-paths src --ignore-src -r -y
+colcon build
+ros2 launch cloisim_ros_bringup bringup_launch.py
+```
+
+[← Back to home](../)
